@@ -1,9 +1,25 @@
-import { formatDate } from '@/helper/helper'
-import { dbGetBlog } from '@/services/blog-service'
 import React from 'react'
+import { dbGetBlog } from '@/services/blog-service'
+import { formatDate, truncateText } from '@/helper/helper'
 
+export async function generateMetadata({ params, searchParams }, parent) {
+    const blog = await dbGetBlog(params.blogId);
+   
+    return {
+      title: `My Blog - ${blog.title}`,
+      openGraph: {
+        title: blog.title,
+        description: truncateText(blog.content),
+        author: blog.author,
+        type: 'website',
+      }
+    }
+  }
+ 
+  
 async function BlogPage({params}) {
-    const blog = await dbGetBlog(params.blogId)
+    const blog = await dbGetBlog(params.blogId);
+
     return (
         <div className="container mx-auto">
             <div className="pt-8 pb-6">
