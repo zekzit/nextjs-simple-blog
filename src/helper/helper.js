@@ -1,4 +1,5 @@
 export function formatDate(timestamp) {
+    if(!timestamp) return "-";
     // Create a new Date object from the timestamp
     const date = new Date(timestamp);
   
