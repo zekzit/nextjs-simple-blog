@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BlogList({ hasAction = true }) {
+function BlogList({ hasAction = false }) {
     return (
         <div>
             <div className="overflow-x-auto">

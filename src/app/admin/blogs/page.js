@@ -10,7 +10,7 @@ function AdminBlogListingPage() {
                 </div>
                 <h1 className="text-2xl font-bold mb-2">Blog list</h1>
             </div>
-            <BlogList />
+            <BlogList hasAction={true} />
         </div>
     )
 }
