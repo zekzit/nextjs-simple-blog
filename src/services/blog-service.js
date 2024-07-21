@@ -10,9 +10,9 @@ export function dbCreateBlog(blog) {
     });
 }
 
-export function dbUpdateBlog(blog) {
+export function dbUpdateBlog(query, doc, options) {
      return new Promise((resolve, reject) => {
-        db.insert(blog, (err, doc) => {
+        db.update(query, doc, options, (err, doc) => {
             if(err) reject(err)
             resolve(doc);
         });

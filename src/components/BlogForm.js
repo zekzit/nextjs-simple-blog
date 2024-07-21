@@ -1,8 +1,25 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useRef } from 'react'
 
-function BlogForm({onSubmit}) {
+function BlogForm({ blog, onSubmit }) {
+    const formRef = useRef();
+
+    useEffect(() => {
+        if (blog) {
+            const form = formRef.current;
+            
+            form.querySelectorAll("input").forEach((input) => {
+                input.value = blog[input.name];
+            });
+
+            form.querySelectorAll("textarea").forEach((input) => {
+                input.value = blog[input.name];
+            });
+        }
+    }, [blog])
+
     return (
-        <form action={onSubmit}>
+        <form ref={formRef} action={onSubmit}>
             <input name="_id" type="hidden" />
             <div className='flex flex-col w-full'>
                 <label className="form-control w-full max-w-xs mb-2">
