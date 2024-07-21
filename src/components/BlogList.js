@@ -1,6 +1,17 @@
+"use client"
 import React from 'react'
+import { formatDate } from '@/helper/helper';
+import { useRouter } from 'next/navigation';
 
-function BlogList({ hasAction = false }) {
+function BlogList({ blogs = [], hasAction = false, onDelete }) {
+    const router = useRouter();
+    const handleOnDelete = (_id) => {
+        if (onDelete) {
+            const confirmed = confirm("Really want to delete?");
+            if (confirmed) onDelete(_id);
+        }
+    }
+
     return (
         <div>
             <div className="overflow-x-auto">
@@ -16,26 +27,20 @@ function BlogList({ hasAction = false }) {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>เทคนิคการเต้น</td>
-                            <td>น้องหมีเนย</td>
-                            <td>01/08/2567, 14:00</td>
-                            {hasAction && (<td>
-                                <a className="btn btn-link" href="/admin/blogs/1">แก้ไข</a>
-                                <button href="/admin/blogs/1" className='btn btn-link'>ลบ</button>
-                            </td>)}
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>ข้างในหมีเป็นหมีใช่ไหม?</td>
-                            <td>น้องหมีเนย</td>
-                            <td>01/08/2567, 14:00</td>
-                            {hasAction && (<td>
-                                <a className="btn btn-link" href="/admin/blogs/2">แก้ไข</a>
-                                <button href="/admin/blogs/2" className='btn btn-link'>ลบ</button>
-                            </td>)}
-                        </tr>
+                        {blogs.map((blog, idx) => (
+                            <tr key={blog._id}
+                                className={`${!hasAction && "cursor-pointer hover:bg-gray-300"}`}
+                                onClick={!hasAction ? (() => router.push(`/blogs/${blog._id}`)) : (() => { })}>
+                                <th>{idx + 1}</th>
+                                <td>{blog.title}</td>
+                                <td>{blog.author}</td>
+                                <td>{formatDate(blog.publishDateTime)}</td>
+                                {hasAction && (<td>
+                                    <a className="btn btn-link" href={`/admin/blogs/${blog._id}`}>แก้ไข</a>
+                                    <button onClick={() => handleOnDelete(blog._id)} className='btn btn-link'>ลบ</button>
+                                </td>)}
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
