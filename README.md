@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Blog Application - Next.js
 
-## Getting Started
+โปรเจคสำหรับเรียนรู้การสร้างเว็บแอพพลิเคชั่นอย่างง่ายด้วย Next.js 14 (App Router) โดยจะมี Branch เพื่อเป็นตัวอย่างการทำเสร็จในขั้นตอนต่าง ๆ
 
-First, run the development server:
+## เนื้อหาที่เกี่ยวข้อง
+ - Next.js Project Structure (app/)
+ - Next.js File-Based Routing
+   - Pages
+   - Layouts
+   - Tailwind CSS
+   - Reusable Components
+ - Server Component/Server Action
+ - API Router
+   - REST Endpoint 
+   - Basic HTTP Verb
+   - HTTP Request/Response
+ - Metadata Headers
+   - OpenGraph
+ - Middleware
+   - Session & Cookies
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Milestone Branches
+ - `milestone/01-complete-ui`  ทำหน้า UI เสร็จ => เริ่มต้นทำ Layout
+ - `milestone/02-complete-layout` ทำส่วนของ Layout เสร็จ => เริ่มต้นทำ Server Action
+ - `milestone/03-complete-server-action` ทำส่วนของ Server Action เสร็จ => เริ่มต้นทำ API Route
+ - `milestone/04-complete-api-route` ทำส่วนของ API Route เสร็จ => เริ่มต้นทำ Metadata
+ - `milestone/05-complete-metadata-header` ทำส่วนของ Metadata เสร็จ => เริ่มต้นทำ Middleware 
+ - `milestone/06-complete-middleware` เสร็จบทเรียน พร้อมให้เพิ่มเติมต่อตามจินตนาการ
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Library ที่เกี่ยวข้อง
+ - DaisyUI: https://daisyui.com/components/
+ - NestDB: https://github.com/JamesMGreene/nestdb
